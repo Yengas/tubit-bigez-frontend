@@ -1,5 +1,5 @@
 import { size, find } from 'lodash'
-import { extendObservable, observable } from 'mobx'
+import { extendObservable } from 'mobx'
 
 /**
  * @class Account
@@ -7,40 +7,21 @@ import { extendObservable, observable } from 'mobx'
 export default class Account {
 
   constructor(request, state = {}){
-    this.request = request
+    this.request = request;
     extendObservable(this, {
       username: null,
-      token: null,
-      users: observable.shallowArray([])
+      token: null
     }, state)
   }
 
   isLoggedIn(){
-    return size(this.username)
-  }
-
-  find(username){
-    return find(this.users, { username })
-  }
-
-  login(params){
-    return this.request('api/account/login', params).then(account =>{
-      extendObservable(this, account)
-    })
+    return size(this.token)
   }
 
   logout(){
-    return this.request('api/account/logout')
-      .then(() =>{
-        this.username = null
-        this.token = null
-      })
-  }
-
-  register(params){
-    return this.request('api/account/register', params)
-      .then(account =>{
-        extendObservable(this, account)
-      })
+    return this.request('logout').then(() =>{
+        this.username = null;
+        this.token = null;
+      });
   }
 }

@@ -17,18 +17,14 @@ class Menu extends React.Component {
 
 function LoggedInMenu(){
   return <menu>
-    <Link activeClassName="selected" to="/">Browse</Link>
-    <Link activeClassName="selected" to="/page/about">About</Link>
-    <Link activeClassName="selected" to="/page/logout">Logout</Link>
+    <Link activeClassName="selected" to="/map">Browse</Link>
+    <Link activeClassName="selected" to="/logout">Logout</Link>
   </menu>
 }
 
 function LoggedOutMenu(){
   return <menu>
-    <Link activeClassName="selected" to="/">Browse</Link>
-    <Link activeClassName="selected" to="/page/about">About</Link>
-    <Link activeClassName="selected" to="/page/register">Register</Link>
-    <Link activeClassName="selected" to="/page/login">Login</Link>
+    <Link activeClassName="selected" to="/">Login</Link>
   </menu>
 }
 

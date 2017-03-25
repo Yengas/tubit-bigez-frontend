@@ -2,12 +2,18 @@ import React from 'react'
 import { observer, inject } from 'mobx-react'
 import Loading from '../common/Loading'
 import Error from '../common/Error'
-import { getQueryStringValue } from '../../utils'
 
 @inject('account') @observer
 class Login extends React.Component {
   constructor(){
     super();
+  }
+
+  componentDidMount(){
+    const { router } =  this.context;
+
+    if(account.isLoggedIn())
+      return router.transitionTo('/map');
   }
 
   // When route is loaded (isomorphic)
@@ -26,37 +32,12 @@ class Login extends React.Component {
     error: null
   };
 
-  handleChange = (key) => (e) =>{
-    this.setState({
-      [key]: e.target.value
-    })
-  };
-
   handleLogin = (e) =>{
     e.preventDefault();
-    const { account } = this.props;
-    const { router } = this.context;
-    const { username, password } = this.state;
-
-    account.login({ username, password })
-      .then(() =>{
-        this.setState({
-          error: null,
-          loading: true
-        });
-        setTimeout(() => router.transitionTo('/'), 500)
-      })
-      .catch(error =>{
-        this.setState({
-          error,
-          loading: false,
-          password: ''
-        })
-      })
+    window.location = '/login/facebook';
   };
 
   render(){
-    const { location } = this.props;
     const { loading, error } = this.state;
 
     if(loading){
@@ -64,28 +45,10 @@ class Login extends React.Component {
     }
 
     return <main>
-      <h1>sign-in</h1>
-      <form className="account" onSubmit={(e) => this.handleLogin(e)}>
-        <label>
-          Usernames
-          <input type="text"
-                 value={this.state.username}
-                 onChange={this.handleChange('username')}
-                 required="required"/>
-        </label>
-
-        <label>
-          Password
-          <input type="password"
-                 value={this.state.password}
-                 onChange={this.handleChange('password')}
-                 required="required"/>
-        </label>
-
-        {error && <Error text={error}/>}
-
-        <button onClick={(e) => this.handleLogin(e)}>Login</button>
-      </form>
+      <div className="login">
+        <div className="logo"></div>
+        <button className="loginButton"><div className="facebookIcon"></div>facebook login</button>
+      </div>
     </main>
   }
 }

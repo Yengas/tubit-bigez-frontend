@@ -1,21 +1,57 @@
-// Typography
-main {
-    width: 680px;
-    margin: 0 auto;
+.container {
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#204489;
 }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 100;
-    text-align: center;
-    margin: 0;
+.login {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  width:242px;
+  height:300px;
 }
 
-.error-message {
-    color: #f66;
-    margin: 2px 0 4px 0;
+.logo {
+  background:url('../img/logo.fw.png');
+  width:242px;
+  height:242px;
 }
-.success-message {
-    color: #fff;
-    margin: 2px 0 4px 0;
+
+.facebookIcon {
+  position:absolute;
+  top:6px;
+  left:22px;
+  width:14px;
+  height:28px;
+  background: url('../img/fIcon.fw.png');
+  background-size: 100% 100%;
+}
+
+.loginButton {
+  position:relative;
+  font-family:font1;
+  font-size:18px;
+  text-align:center;
+  background:none;
+  border:1px solid #18BFD6;
+  color:#18BFD6;
+  outline:none;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  margin:20px 0px;
+  border-radius:100px;
+}
+
+.loginButton:hover {
+  background:#fff;
+  color:#204489;
+  border:none;
+  transition:1000ms;
+  cursor:pointer;
 }

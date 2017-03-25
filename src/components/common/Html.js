@@ -24,7 +24,7 @@ class Html extends React.Component {
     </head>
     <body>
     {/* Our content rendered here */}
-    <div id="container">
+    <div id="container" className="container">
       <App stores={stores}>
         {children}
       </App>
