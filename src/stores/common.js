@@ -1,4 +1,5 @@
 import { extendObservable } from 'mobx'
+import config from '../config'
 
 /**
  * @class Common
@@ -10,7 +11,7 @@ export default class Common {
     extendObservable(this, {
       title: 'Mobx-starter',
       statusCode: 200,
-      hostname: 'localhost'
+      hostname: config.backend.host
     }, state)
   }
 
