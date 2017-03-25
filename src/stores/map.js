@@ -14,7 +14,7 @@ export default class Map{
       // inputs  in the map
       inputs: {
         start: new Date(),
-        end: null
+        end: new Date()
       },
       // Who this route belongs to
       person: null

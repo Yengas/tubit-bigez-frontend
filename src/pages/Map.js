@@ -1,6 +1,9 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
+import { toJS } from 'mobx'
 import GoogleMap from '../components/map/GoogleMap'
+import DateTime from 'react-datetime'
+import moment from 'moment'
 
 @inject('map') @observer
 class Map extends React.Component{
@@ -14,16 +17,20 @@ class Map extends React.Component{
     // Make requests to get marker and route
   }
 
- markerClick = (event, marker) => {
+  periodChange = (key, date) => {
+    this.props.map.inputs[key] = date;
+  };
+
+  markerClick = (event, marker) => {
     const { map } = this.props;
     console.log(map, marker, map.isInspecting());
     if(map.isInspecting()) return false;
     map.toggle(marker);
- };
+  };
 
   render(){
     const { map } = this.props;
-    console.log(map);
+    console.log(map.inputs);
 
     return (<div>
       <div height="800px">
@@ -36,35 +43,9 @@ class Map extends React.Component{
         <div className="form">
           <input type="text" className="search"  name="search" placeholder="Bir yer arayın..."/>
           <label className="formTitle" for="dateSelect">Başlangıç saati seçin</label>
-          <select className="dateSelect">
-            <option value="">01:00</option>
-            <option value="">02:00</option>
-            <option value="">03:00</option>
-            <option value="">04:00</option>
-            <option value="">05:00</option>
-            <option value="">06:00</option>
-            <option value="">07:00</option>
-            <option value="">08:00</option>
-            <option value="">09:00</option>
-            <option value="">10:00</option>
-            <option value="">11:00</option>
-            <option value="">12:00</option>
-          </select>
+          <DateTime value={moment(map.inputs.start)} onChange={(date) => this.periodChange('start', date)} />
           <label className="formTitle" for="dateSelect">Bitiş saati seçin</label>
-          <select className="dateSelect">
-            <option value="">01:00</option>
-            <option value="">02:00</option>
-            <option value="">03:00</option>
-            <option value="">04:00</option>
-            <option value="">05:00</option>
-            <option value="">06:00</option>
-            <option value="">07:00</option>
-            <option value="">08:00</option>
-            <option value="">09:00</option>
-            <option value="">10:00</option>
-            <option value="">11:00</option>
-            <option value="">12:00</option>
-          </select>
+          <DateTime value={moment(map.inputs.end)} isValidDate={(date) => moment(map.inputs.start) < moment(date)} onChange={(date) => this.periodChange('end', date)} />
           <button className="formButton">Eşleşmeleri görüntüle</button>
         </div>
       </div>
