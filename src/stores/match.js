@@ -20,4 +20,14 @@ export default class Match{
         this.matches = result;
       });
   }
+
+  /**
+   * Creates and returns a route object for the user.
+   * @param route {Array} array of coordinates to send to the database.
+   * @param start {Date} start date for the route.
+   * @param end {Date} end date for the route.
+   */
+  create(route, start, end){
+    return this.request(`routes`, { route, start, end });
+  }
 }

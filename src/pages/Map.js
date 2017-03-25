@@ -4,8 +4,9 @@ import { toJS } from 'mobx'
 import GoogleMap from '../components/map/GoogleMap'
 import DateTime from 'react-datetime'
 import moment from 'moment'
+import Alert from 'react-s-alert'
 
-@inject('map') @observer
+@inject('map') @inject('match') @observer
 class Map extends React.Component{
   componentDidMount(){
     const { location, map, params } = this.props;
@@ -23,14 +24,29 @@ class Map extends React.Component{
 
   markerClick = (event, marker) => {
     const { map } = this.props;
-    console.log(map, marker, map.isInspecting());
     if(map.isInspecting()) return false;
     map.toggle(marker);
   };
 
+  // TODO: check if there are waiting network requests before sending one more.
+  // TODO: error check with joi and alert
+  /**
+   * Handle creating route by the currently selected route and dates.
+   */
+  handleCreate = () => {
+    const { match, map } = this.props;
+    const { router } = this.context;
+
+    match.create(map.route, map.inputs.start, map.inputs.end)
+      .then((result) => {
+        Alert.success('Successfully inserted a route, redirecting to matches.');
+        window.location = `/match/${result._id}`;
+      })
+      .catch((err) => Alert.error(`An error occured while processing button click. Reason: ${err.message}`));
+  };
+
   render(){
     const { map } = this.props;
-    console.log(map.inputs);
 
     return (<div>
       <div height="800px">
@@ -46,9 +62,10 @@ class Map extends React.Component{
           <DateTime value={moment(map.inputs.start)} onChange={(date) => this.periodChange('start', date)} />
           <label className="formTitle" for="dateSelect">Bitiş saati seçin</label>
           <DateTime value={moment(map.inputs.end)} isValidDate={(date) => moment(map.inputs.start) < moment(date)} onChange={(date) => this.periodChange('end', date)} />
-          <button className="formButton">Eşleşmeleri görüntüle</button>
+          <button className="formButton" onClick={this.handleCreate}>Eşleşmeleri görüntüle</button>
         </div>
       </div>
+      <Alert stack={{ limit: 3 }} />
       </div>);
   }
 }

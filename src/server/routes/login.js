@@ -23,6 +23,6 @@ async function processLogin(ctx){
   const result = await request(`login/facebook/callback?redirect_uri=${config.login.url}&code=${code}`);
   if(!result || !result.token || result.error) throw new Exception("Couldn't process the given code.");
   // Set the cookie with the given token.
-  ctx.cookies.set(config.headers.token, result.token);
+  ctx.cookies.set(config.headers.token, result.token, { httpOnly: false });
   ctx.redirect('/');
 }
