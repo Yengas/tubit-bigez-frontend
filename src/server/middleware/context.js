@@ -1,5 +1,6 @@
 import { stores } from '../../client/stores'
 import config from '../../config'
+import { getAccount } from '../routes/account'
 
 /**
  * Middleware for creating the context
@@ -17,10 +18,10 @@ export default async(ctx, next) => {
     }
   };
 
-  /*const account = await getAccount(ctx.token)
+  const account = await getAccount(ctx.token)
   if (account) {
     state.account = account
-  }*/
+  }
 
   // Finally initialize state. This should come last
   ctx.stores = stores(state, ctx.token);

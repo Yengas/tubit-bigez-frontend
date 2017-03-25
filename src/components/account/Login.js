@@ -12,8 +12,13 @@ class Login extends React.Component {
   componentDidMount(){
     const { router } =  this.context;
 
-    if(account.isLoggedIn())
-      return router.transitionTo('/map');
+    if(this.props.account.isLoggedIn()){
+      console.log("Logged in!");
+      return router.transitionTo('/match');
+    }else{
+      console.log("Not logged in!");
+      console.log(this.props.account);
+    }
   }
 
   // When route is loaded (isomorphic)
@@ -47,7 +52,7 @@ class Login extends React.Component {
     return <main>
       <div className="login">
         <div className="logo"></div>
-        <button className="loginButton"><div className="facebookIcon"></div>facebook login</button>
+        <button className="loginButton" onClick={this.handleLogin}><div className="facebookIcon"></div>facebook login</button>
       </div>
     </main>
   }

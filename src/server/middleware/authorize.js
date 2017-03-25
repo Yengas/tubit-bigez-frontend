@@ -1,5 +1,4 @@
 import logger from 'debug'
-import { checkAuthorized } from '../routes/account'
 
 /**
  * Middleware for checking if we're logged in
