@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import config from '../../src/config'
 
 /**
  * This is our overly complicated isomorphic "request"
@@ -8,7 +9,7 @@ import _ from 'lodash'
 export default (hostname, token) =>{
   return function(url, body, postForm = false){
     const requestURL = createURL(hostname, url);
-    const requestToken = process.env.BROWSER ? getCookie('token') : token;
+    const requestToken = process.env.BROWSER ? getCookie(config.headers.token) : token;
     const requestOptions = {
       credentials: 'include',
       headers: {}
@@ -32,7 +33,7 @@ export default (hostname, token) =>{
     }
 
     // Append token to the headers
-    requestOptions.headers.token = requestToken;
+    requestOptions.headers[config.headers.token] = requestToken;
     return fetch(requestURL, requestOptions).then(handleResponse)
   }
 }

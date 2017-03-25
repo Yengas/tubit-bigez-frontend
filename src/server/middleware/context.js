@@ -1,4 +1,5 @@
 import { stores } from '../../client/stores'
+import config from '../../config'
 
 /**
  * Middleware for creating the context
@@ -7,7 +8,7 @@ import { stores } from '../../client/stores'
  */
 export default async(ctx, next) => {
   // Get our token from headers (server) or cookies (client)
-  ctx.token = ctx.headers['token'] || ctx.cookies.get('token')
+  ctx.token = ctx.headers[config.headers.token] || ctx.cookies.get(config.headers.token)
 
   // Create the context with params and hostname for SSR
   const state = {

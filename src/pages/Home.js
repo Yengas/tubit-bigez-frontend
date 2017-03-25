@@ -15,7 +15,7 @@ class Home extends React.Component {
   // When route is loaded (isomorphic)
   static onEnter({ todos, common }, params){
     common.title = 'Home'
-    return todos.browse();
+    //return todos.browse();
   }
 
   handleReload = (e) => {

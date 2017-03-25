@@ -9,7 +9,7 @@ export default router()
   .get('/login/facebook/callback', processLogin);
 
 async function redirectLogin(ctx){
-  const token = ctx.cookies.get('token');
+  const token = ctx.cookies.get(config.headers.token);
   if(token) throw new Exception("Already logged in!");
   const result = await request(`login/facebook?redirect_uri=${config.login.url}`);
   if(!result || !result.url || result.error) throw new Exception("Couldn't get login url.");
@@ -23,6 +23,6 @@ async function processLogin(ctx){
   const result = await request(`login/facebook/callback?redirect_uri=${config.login.url}&code=${code}`);
   if(!result || !result.token || result.error) throw new Exception("Couldn't process the given code.");
   // Set the cookie with the given token.
-  ctx.cookies.set('token', result.token);
+  ctx.cookies.set(config.headers.token, result.token);
   ctx.redirect('/');
 }

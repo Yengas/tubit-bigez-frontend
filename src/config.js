@@ -8,6 +8,9 @@ export default {
       '/build': path.join(__dirname, '../build')
     }
   },
+  headers: {
+    token: 'x-bigez-token'
+  },
   backend: {
     host: 'bigez-backend:8080'
   },
