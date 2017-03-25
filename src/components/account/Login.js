@@ -13,7 +13,7 @@ class Login extends React.Component {
     const { router } =  this.context;
 
     if(this.props.account.isLoggedIn()){
-      return router.transitionTo('/match');
+      return router.transitionTo('/map');
     }
   }
 

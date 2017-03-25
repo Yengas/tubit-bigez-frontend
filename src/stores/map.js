@@ -7,6 +7,8 @@ export default class Map{
     extendObservable(this, {
       // ID of the route
       id: null,
+      // Markers
+      markers: [],
       // route of the travel
       route: [],
       // inputs  in the map
@@ -17,6 +19,14 @@ export default class Map{
       // Who this route belongs to
       person: null
     }, state);
+  }
+
+  /**
+   * Checks if the current person is inspecting or another.
+   * @return {boolean}
+   */
+  isInspecting(){
+    return !!this.person;
   }
 
   /**
@@ -41,5 +51,10 @@ export default class Map{
     this.inputs.end = route.period.end;
     this.person = route.person;
     return Promise.resolve();
+  }
+
+  fillMarkers(){
+    return this.request('markers')
+      .then((result) => this.markers = result);
   }
 }

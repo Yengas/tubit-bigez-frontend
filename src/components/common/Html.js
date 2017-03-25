@@ -12,13 +12,10 @@ class Html extends React.Component {
       <title>{stores.common.title}</title>
       <meta name="title" content={stores.common.title}/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
       {/* Favicons */}
       <link rel="icon" href="/favicon.ico"/>
-
       {/* Bundled CSS */}
       <link href={devServerURL + '/build/bundle.css'} rel="stylesheet"/>
-
       {/* SSR State*/}
       <script dangerouslySetInnerHTML={insertState(stores)}/>
     </head>
