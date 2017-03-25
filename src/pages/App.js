@@ -16,6 +16,7 @@ class App extends React.Component {
     // Wrapping with provider gives children access to stores
     return (<Provider {...stores}>
       <div>
+        <Menu/>
         <Match exactly pattern="/" component={Login}/>
 
         {/* User management */}

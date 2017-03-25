@@ -24,7 +24,6 @@ ul {
   src: url('../fonts/OpenSans-Regular.ttf');
 }
 
-/* MAP.HTML */
 #map {
   position:relative;
   width:100%;
@@ -89,8 +88,10 @@ ul {
 }
 .backImg {
   position:relative;
-  left:10px;
+  top: 40px;
+  left: 10px;
   display:block;
+  background: url('../img/backArrow.fw.png') no-repeat;
   padding:43px 0px;
 }
 .column-right {
@@ -114,8 +115,16 @@ ul {
   width: 33.33%;
   text-align:center;
   line-height:100px;
-
+  padding: 0.2em 0px;
   cursor: pointer;
+}
+.fwdImg {
+  background: url('../img/logo.fw.png') no-repeat;
+  background-size: 100% 100%;
+  width: 3em;
+  height: 1em;
+  margin: 0 auto;
+  padding: 1em 0px;
 }
 .column-center img {
   margin:15px 0px;
@@ -162,4 +171,3 @@ ul {
   top:-25px;
   cursor:pointer;
 }
-/* MATCH.HTML END */
