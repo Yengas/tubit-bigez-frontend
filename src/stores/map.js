@@ -57,4 +57,21 @@ export default class Map{
     return this.request('markers')
       .then((result) => this.markers = result);
   }
+
+  /**
+   * Toggles the given marker on/off in the route for the current state.
+   * @param marker {Object} mongoose marker object.
+   */
+  toggle(marker){
+    const { coordinates: coord } = marker.location;
+    const filtered = this.route.filter(loc => loc[0] !== coord[0] || loc[1] !== coord[1]);
+
+    // If the filter operation didn't change anything...
+    if(filtered.length == this.route.length)
+      // Push the coordinates of the marker to the route.
+      this.route = [...this.route, coord];
+    else
+      // Set the current route as filtered route.
+      this.route = filtered;
+  }
 }

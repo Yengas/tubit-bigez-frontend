@@ -14,13 +14,20 @@ class Map extends React.Component{
     // Make requests to get marker and route
   }
 
+ markerClick = (event, marker) => {
+    const { map } = this.props;
+    console.log(map, marker, map.isInspecting());
+    if(map.isInspecting()) return false;
+    map.toggle(marker);
+ };
+
   render(){
     const { map } = this.props;
     console.log(map);
 
     return (<div>
       <div height="800px">
-        <GoogleMap googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp" loadingElement={<div>Loading...</div>} containerElement={ <div style={{ height: `100%` }} /> } mapElement={ <div style={{ height: `400px` }} /> } markers={map.markers} />
+        <GoogleMap googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp" loadingElement={<div>Loading...</div>} containerElement={ <div style={{ height: `100%` }} /> } mapElement={ <div style={{ height: `400px` }} /> } markers={map.markers} markerClick={this.markerClick} polyline={map.route} />
       </div>
       <div className="clearfix"></div>
       <div className="map">
