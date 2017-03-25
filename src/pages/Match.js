@@ -6,12 +6,15 @@ import { observer, inject } from 'mobx-react'
 class Match extends React.Component {
   // On the page mount.
   componentDidMount(){
-    const { match } = this.props;
-    match.loadFor('58d67e5e0db263d03809b940');
+    const { location, match } = this.props;
+    const { params } = this.props;
+
+    if(params && params.id)
+      match.loadFor(params.id)
   }
   // From the server side request.
-  onEnter({ match }, params){
-    return match.loadFor("58d67e5e0db263d03809b940");
+  static onEnter({ match }, params){
+    return match.loadFor(params.id);
   }
 
   render(){

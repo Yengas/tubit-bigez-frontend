@@ -1,6 +1,6 @@
 import matchPath from '../../core/helpers/matchPath'
 import Home from '../pages/Home'
-import About from '../pages/About'
+import Match from '../pages/Match'
 import Login from '../components/account/Login'
 import Logout from '../components/account/Logout'
 
@@ -12,8 +12,8 @@ const routes = [
     execute: Home.onEnter
   },
   {
-    pattern: '/page/about',
-    execute: About.onEnter
+    pattern: '/match/:id',
+    execute: Match.onEnter
   },
   {
     pattern: '/page/login',
