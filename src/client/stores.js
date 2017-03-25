@@ -2,6 +2,7 @@ import requestCreator from 'core/helpers/request'
 import Common from '../stores/common'
 import Todos from '../stores/todos'
 import Account from '../stores/account'
+import Match from '../stores/match'
 import config from '../config.js'
 
 // All our actions are listed here
@@ -10,7 +11,8 @@ export const stores = (state = {}, token) =>{
   return {
     common: new Common(request, state.common),
     todos: new Todos(request, state.todos),
-    account: new Account(request, state.account)
+    account: new Account(request, state.account),
+    match: new Match(request, state.match)
   }
 };
 

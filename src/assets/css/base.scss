@@ -2,12 +2,15 @@
   margin:0;
   padding:0;
 }
+
 a {
   text-decoration:none;
 }
+
 ul {
   list-style:none;
 }
+
 .clearfix {
   clear:both;
 }
@@ -28,21 +31,25 @@ ul {
   position:relative;
   width:100%;
 }
+
 .map {
   position:relative;
   display:block;
   width:100%;
   height:300px;
 }
+
 #mapTitle {
   height:100px;
   border-bottom:1px solid #17B9D1;
 }
+
 .form {
   position:relative;
   display:block;
   width:100%;
 }
+
 .formTitle{
   display:block;
   font-family:font1;
@@ -50,6 +57,7 @@ ul {
   color:#ccc;
   margin:10px;
 }
+
 .search {
   width:calc(100% - 30px);
   margin:10px;
@@ -58,6 +66,7 @@ ul {
   background:#3D71D1;
   border:none;
 }
+
 .formButton {
   font-family:font1;
   font-size:16px;
@@ -70,6 +79,7 @@ ul {
   cursor:pointer;
   color:#fff;
 }
+
 .dateSelect {
   display:block;
   width:calc(100% - 20px);
@@ -81,11 +91,13 @@ ul {
   border:none;
   padding:10px;
 }
+
 .column-left {
   float: left;
   width: 33.33%;
   cursor: pointer;
 }
+
 .backImg {
   position:relative;
   top: 40px;
@@ -94,6 +106,7 @@ ul {
   background: url('../img/backArrow.fw.png') no-repeat;
   padding:43px 0px;
 }
+
 .column-right {
   position:relative;
   font-family:font1;
@@ -106,6 +119,7 @@ ul {
   line-height:100px;
   cursor: pointer;
 }
+
 .column-center {
   display: inline-block;
   font-family:font1;
@@ -118,6 +132,7 @@ ul {
   padding: 0.2em 0px;
   cursor: pointer;
 }
+
 .fwdImg {
   background: url('../img/logo.fw.png') no-repeat;
   background-size: 100% 100%;
@@ -126,48 +141,9 @@ ul {
   margin: 0 auto;
   padding: 1em 0px;
 }
+
 .column-center img {
   margin:15px 0px;
   width:80px;
   height:80px;
-}
-/* MAP.HTML END */
-
-/* MATCH.HTML */
-#route {
-  font-family:font1;
-  font-size:16px;
-  font-weight:bold;
-  color:#fff;
-}
-.matchs {
-  margin-bottom:20px;
-}
-.information{
-  position:relative;
-  display:block;
-}
-.matchs .information  .avatar {
-  position:relative;
-  width:150px;
-  height:150px;
-  float:left;
-  margin-right:10px;
-  border-right:1px solid #204489;
-}
-.informationSpan {
-  padding:30px 0px;
-}
-.routeButton {
-  position:relative;
-  width:100%;
-  background:#17B9D1;
-  font-family: font1;
-  font-size: 18px;
-  color:#fff;
-  border:none;
-  outline:none;
-  padding:10px 10px;
-  top:-25px;
-  cursor:pointer;
 }

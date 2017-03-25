@@ -18,6 +18,7 @@
   position:relative;
   width:150px;
   height:150px;
+  background: url('../img/avatar.fw.png');
   float:left;
   margin-right:10px;
   border-right:1px solid #204489;
@@ -25,6 +26,27 @@
 
 .informationSpan {
   padding:30px 0px;
+
+  .span1{
+    display:block;
+    background:#3D71D1;
+    padding:13px;
+    margin:-30px 0px 0px 0px;
+  }
+
+  .span2{
+    display:block;
+    background:#3D71D1;
+    padding:14px;
+    margin:1px 0px 0px 0px;
+  }
+
+  .span3{
+    display:block;
+    background:#3D71D1;
+    padding:14px;
+    margin:1px 0px 0px 0px;
+  }
 }
 
 .routeButton {

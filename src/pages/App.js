@@ -8,6 +8,7 @@ import Logout from '../components/account/Logout'
 import Register from '../components/account/Register'
 import NotFound from './NotFound'
 import Menu from '../components/common/Menu'
+import MatchComponent from '../pages/Match'
 
 class App extends React.Component {
   render(){
@@ -18,6 +19,7 @@ class App extends React.Component {
       <div>
         <Menu/>
         <Match exactly pattern="/" component={Login}/>
+        <Match exactly pattern="/match" component={MatchComponent}/>
 
         {/* User management */}
         <Miss component={NotFound}/>
