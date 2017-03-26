@@ -17,6 +17,7 @@ export default class Match{
   loadFor(route_id){
     return this.request(`routes/${route_id}/match`)
       .then((result) => {
+        console.log(result);
         this.matches = result;
       });
   }

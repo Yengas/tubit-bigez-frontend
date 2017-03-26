@@ -3,6 +3,7 @@ import { observer, inject } from 'mobx-react'
 import { toJS } from 'mobx'
 import GoogleMap from '../components/map/GoogleMap'
 import RouteCreate from '../components/map/RouteCreate'
+import RouteInspect from '../components/map/RouteInspect'
 import Alert from 'react-s-alert'
 import config from '../config'
 
@@ -58,20 +59,7 @@ class Map extends React.Component{
       <div className="clearfix"></div>
       <div className="map">
         <div height="800px">
-        </div>
-        <RouteCreate />
-        <div className="route">
-            <div className="matchs">
-              <div className="information">
-                <img className="avatar"  alt="avatar" />
-                <ul className="informationSpan">
-                  <li className="span1"><i className="fa fa-user-circle-o" aria-hidden="true"></i> Eşleşme ismi</li>
-                  <li className="span2"><i className="fa fa-tachometer" aria-hidden="true"></i> Uyum alanı</li>
-                  <li className="span3"><i className="fa fa-clock-o" aria-hidden="true"></i> Uyum alanı</li>
-                </ul>
-                <button className="routeButton">Eşleşmeyi kabul et</button>
-              </div>
-            </div>
+          <RouteCreate handleCreate={this.handleCreate} periodChange={this.periodChange}/>
         </div>
       </div>
       <Alert stack={{ limit: 3 }} />

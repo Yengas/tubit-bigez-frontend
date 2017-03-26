@@ -11,10 +11,10 @@ class RouteCreate extends React.Component {
     return (
       <div className="form">
       <label className="formTitle" for="dateSelect">Başlangıç saati seçin</label>
-      <DateTime className="date-picker" value={moment(map.inputs.start)} onChange={(date) => this.periodChange('start', date)} />
+      <DateTime className="date-picker" value={moment(map.inputs.start)} onChange={(date) => this.props.periodChange('start', date)} />
       <label className="formTitle" for="dateSelect">Bitiş saati seçin</label>
-      <DateTime className="date-picker" value={moment(map.inputs.end)} isValidDate={(date) => moment(map.inputs.start) < moment(date)} onChange={(date) => this.periodChange('end', date)} />
-      <button className="formButton" onClick={this.handleCreate}>Eşleşmeleri görüntüle</button>
+      <DateTime className="date-picker" value={moment(map.inputs.end)} isValidDate={(date) => moment(map.inputs.start) < moment(date)} onChange={(date) => this.props.periodChange('end', date)} />
+      <button className="formButton" onClick={this.props.handleCreate}>Eşleşmeleri görüntüle</button>
       </div>
     );
   }
