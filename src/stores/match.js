@@ -22,6 +22,15 @@ export default class Match{
   }
 
   /**
+   * Accepts the given route.
+   * @param route_id
+   * @return {*}
+   */
+  acceptMatch(route_id){
+    return this.request(`routes/${route_id}/accept`);
+  }
+
+  /**
    * Creates and returns a route object for the user.
    * @param route {Array} array of coordinates to send to the database.
    * @param start {Date} start date for the route.
