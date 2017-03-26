@@ -1,22 +1,19 @@
 import React from 'react'
 import { observer, inject } from 'mobx-react'
+import MatchItem from '../match/MatchItem'
 import DateTime from 'react-datetime'
 
 @inject('map') @observer
 class RouteInspect extends React.Component{
   render(){
     const { map } = this.props;
-    const { profile } = map;
+    const { person, inputs } = map;
+    const item = Object.assign({ score: person.score, period: { start: inputs.start, end: inputs.end }}, { person });
 
     return (<div className="route">
       <div className="matchs">
         <div className="information">
-          <img className="avatar"  alt="avatar" />
-          <ul className="informationSpan">
-            <li className="span1"><i className="fa fa-user-circle-o" aria-hidden="true"></i> Eşleşme ismi</li>
-            <li className="span2"><i className="fa fa-tachometer" aria-hidden="true"></i> Uyum alanı</li>
-            <li className="span3"><i className="fa fa-clock-o" aria-hidden="true"></i> Uyum alanı</li>
-          </ul>
+          <MatchItem item={item} hideButton={true} />
           <button className="routeButton">Eşleşmeyi kabul et</button>
         </div>
       </div>

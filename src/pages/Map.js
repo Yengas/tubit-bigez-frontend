@@ -59,7 +59,12 @@ class Map extends React.Component{
       <div className="clearfix"></div>
       <div className="map">
         <div height="800px">
-          <RouteCreate handleCreate={this.handleCreate} periodChange={this.periodChange}/>
+          {
+            map.isInspecting() ?
+              <RouteInspect />
+              :
+              <RouteCreate handleCreate={this.handleCreate} periodChange={this.periodChange}/>
+          }
         </div>
       </div>
       <Alert stack={{ limit: 3 }} />

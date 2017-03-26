@@ -35,6 +35,7 @@ class Match extends React.Component {
   render(){
     const { match } = this.props;
     return (<div className="route">
+        { match.matches.length == 0 ? <h1>Bu aramanız için herhangi bir eşleşme bulunmadı!</h1> : false }
         {match.matches.map((item, index) =>{
           return <MatchItem key={index} item={item} showRoute={this.showRouteHandler}/>
         })}
