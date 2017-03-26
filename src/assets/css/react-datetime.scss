@@ -1,7 +1,13 @@
 /*!
  * https://github.com/YouCanBookMe/react-datetime
  */
-
+.form-control {
+  display: block;
+  width: calc(100% - 45px);
+  height: 30px;
+  padding: 0px 10px;
+  margin: 0px 10px;
+}
 .rdt {
   position: relative;
 }
@@ -38,6 +44,7 @@
   height: 28px;
 }
 .rdtPicker td {
+  width: 100%;
   cursor: pointer;
 }
 .rdtPicker td.rdtDay:hover,

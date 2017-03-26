@@ -2,8 +2,7 @@ import React from 'react'
 import { observer, inject } from 'mobx-react'
 import { toJS } from 'mobx'
 import GoogleMap from '../components/map/GoogleMap'
-import DateTime from 'react-datetime'
-import moment from 'moment'
+import RouteCreate from '../components/map/RouteCreate'
 import Alert from 'react-s-alert'
 import config from '../config'
 
@@ -60,13 +59,19 @@ class Map extends React.Component{
       <div className="map">
         <div height="800px">
         </div>
-        <div className="form">
-          <input type="text" className="search"  name="search" placeholder="Bir yer arayın..."/>
-          <label className="formTitle" for="dateSelect">Başlangıç saati seçin</label>
-          <DateTime value={moment(map.inputs.start)} onChange={(date) => this.periodChange('start', date)} />
-          <label className="formTitle" for="dateSelect">Bitiş saati seçin</label>
-          <DateTime value={moment(map.inputs.end)} isValidDate={(date) => moment(map.inputs.start) < moment(date)} onChange={(date) => this.periodChange('end', date)} />
-          <button className="formButton" onClick={this.handleCreate}>Eşleşmeleri görüntüle</button>
+        <RouteCreate />
+        <div className="route">
+            <div className="matchs">
+              <div className="information">
+                <img className="avatar"  alt="avatar" />
+                <ul className="informationSpan">
+                  <li className="span1"><i className="fa fa-user-circle-o" aria-hidden="true"></i> Eşleşme ismi</li>
+                  <li className="span2"><i className="fa fa-tachometer" aria-hidden="true"></i> Uyum alanı</li>
+                  <li className="span3"><i className="fa fa-clock-o" aria-hidden="true"></i> Uyum alanı</li>
+                </ul>
+                <button className="routeButton">Eşleşmeyi kabul et</button>
+              </div>
+            </div>
         </div>
       </div>
       <Alert stack={{ limit: 3 }} />

@@ -107,3 +107,61 @@
   width:80px;
   height:80px;
 }
+
+.route {
+  font-family:font1;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+}
+.matchs {
+  margin-bottom:20px;
+}
+.information{
+  position:relative;
+  display:block;
+}
+.matchs .information  .avatar {
+  position:relative;
+  width:150px;
+  height:150px;
+  float:left;
+  margin-right:10px;
+  border-right:1px solid #204489;
+}
+.informationSpan {
+  padding:30px 0px;
+}
+.routeButton {
+  position:relative;
+  width:100%;
+  background:#17B9D1;
+  font-family: font1;
+  font-size: 18px;
+  color:#fff;
+  border:none;
+  outline:none;
+  padding:10px 10px;
+  top:-25px;
+  cursor:pointer;
+}
+
+.span1 {
+  display:block;
+  background:#3D71D1;
+  padding:13px;
+  margin:-30px 0px 0px 0px;
+}
+
+.span2 {
+  display:block;
+  background:#3D71D1;
+  padding:14px;
+  margin:1px 0px 0px 0px;
+}
+.span3 {
+  display:block;
+  background:#3D71D1;
+  padding:14px;
+  margin:1px 0px 0px 0px;
+}
