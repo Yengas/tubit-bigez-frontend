@@ -32,7 +32,7 @@ class MatchItem extends React.Component{
             <li className="span3"><i className="fa fa-clock-o" /> {showDate(item.period.start, item.period.end)}</li>
           </ul>
         </div>
-        <button className="routeButton">Rotasını gör!</button>
+        <button className="routeButton" onClick={(event) => this.props.showRoute(event, item)}>Rotasını gör!</button>
       </div>
       <div className="clearfix"></div>
     </div>);

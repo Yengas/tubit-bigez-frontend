@@ -46,10 +46,11 @@ export default class Map{
    */
   setRoute(route){
     this.id = route._id;
-    this.route = route.route;
+    this.route = route.route.coordinates;
     this.inputs.start = route.period.start;
     this.inputs.end = route.period.end;
     this.person = route.person;
+    this.person.score = route.score;
     return Promise.resolve();
   }
 

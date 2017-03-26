@@ -5,9 +5,13 @@ import GoogleMap from '../components/map/GoogleMap'
 import DateTime from 'react-datetime'
 import moment from 'moment'
 import Alert from 'react-s-alert'
+import config from '../config'
 
 @inject('map') @inject('match') @observer
 class Map extends React.Component{
+  constructor(){
+    super();
+  }
   componentDidMount(){
     const { location, map, params } = this.props;
     map.fillMarkers();
@@ -50,7 +54,7 @@ class Map extends React.Component{
 
     return (<div>
       <div height="800px">
-        <GoogleMap googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp" loadingElement={<div>Loading...</div>} containerElement={ <div style={{ height: `100%` }} /> } mapElement={ <div style={{ height: `400px` }} /> } markers={map.markers} markerClick={this.markerClick} polyline={map.route} />
+        <GoogleMap googleMapURL={config.maps.url} loadingElement={<div>Loading...</div>} containerElement={ <div style={{ height: `100%` }} /> } mapElement={ <div style={{ height: `400px` }} /> } markers={map.markers} markerClick={this.markerClick} polyline={map.route} />
       </div>
       <div className="clearfix"></div>
       <div className="map">

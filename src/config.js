@@ -8,6 +8,9 @@ export default {
       '/build': path.join(__dirname, '../build')
     }
   },
+  maps: {
+    url: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDa8cEPYkDDDMNaQ0Ut0RWkbNyD-IbtELw"
+  },
   headers: {
     token: 'x-bigez-token'
   },
