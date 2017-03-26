@@ -9,7 +9,7 @@ export default class Common {
   constructor(request, state = {}){
     this.request = request;
     extendObservable(this, {
-      title: 'Mobx-starter',
+      title: 'BiGez',
       statusCode: 200,
       hostname: config.backend.host
     }, state)

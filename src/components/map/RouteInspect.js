@@ -18,7 +18,6 @@ class RouteInspect extends React.Component{
         window.setTimeout(() => this.context.router.back(), 1000);
       })
       .catch((err) => {
-        console.log(err);
         Alert.error("İstek gönderirken bir hata ile karşılaşıldı. Lütfen daha sonra tekrar deneyin.");
       });
   };

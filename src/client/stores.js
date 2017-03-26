@@ -4,7 +4,6 @@ import Map from '../stores/map'
 import Account from '../stores/account'
 import Match from '../stores/match'
 import config from '../config.js'
-import Menu from '../stores/menu'
 
 // All our actions are listed here
 export const stores = (state = {}, token) =>{
@@ -14,7 +13,6 @@ export const stores = (state = {}, token) =>{
     account: new Account(request, state.account),
     match: new Match(request, state.match),
     map: new Map(request, state.map),
-    menu: new Menu(request, state.menu)
   }
 };
 
