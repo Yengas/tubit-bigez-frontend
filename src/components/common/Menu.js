@@ -27,7 +27,7 @@ function LoggedInMenu(props){
   return <div>
     <div className="mapTitle">
       <div className="column-left"><div className="backImg"></div></div>
-      <div className="column-center"><div className="fwdImg"></div></div>
+      <div className="column-center"><div className="menuLogo"></div></div>
       { <div className="column-right">{type}</div> }
     </div>
     {/*<Link activeClassName="selected" to="/map">Browse</Link>*/}

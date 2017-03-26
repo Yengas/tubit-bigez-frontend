@@ -31,7 +31,7 @@ class RouteInspect extends React.Component{
       <div className="matchs">
         <div className="information">
           <MatchItem item={item} hideButton={true} />
-          <button className="routeButton" onClick={this.handleAccept}>Eşleşmeyi kabul et</button>
+          <button className="matchButton" onClick={this.handleAccept}>Eşleşmeyi kabul et</button>
         </div>
       </div>
     </div>);

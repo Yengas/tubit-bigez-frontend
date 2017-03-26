@@ -29,7 +29,7 @@ class MatchItem extends React.Component{
           <ul>
             <li className="span1"><i className="fa fa-user-circle-o" /> {item.person[0].profile.name}</li>
             <li className="span2"><i className="fa fa-tachometer" /> Uyum %{Math.round(item.score * 100)}</li>
-            <li className="span3"><i className="fa fa-clock-o" /> {showDate(item.period.start, item.period.end)}</li>
+            <li className="span3"><i className="fa fa-clock-o" /> <span className="time">{showDate(item.period.start, item.period.end)}</span></li>
           </ul>
         </div>
         { this.props.hideButton ? false : <button className="routeButton" onClick={(event) => this.props.showRoute(event, item)}>Rotasını gör!</button> }

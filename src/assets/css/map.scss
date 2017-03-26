@@ -11,7 +11,7 @@
 }
 
 .mapTitle {
-  height:100px;
+  padding: 5px;
   border-bottom:1px solid #17B9D1;
 }
 
@@ -26,7 +26,6 @@
   font-family:font1;
   font-size:16px;
   color:#ccc;
-  margin:10px;
 }
 
 .search {
@@ -73,7 +72,7 @@
   position:relative;
   left:10px;
   display:block;
-  padding:43px 0px;
+  padding:0px 0px;
 }
 
 .column-right {
@@ -85,7 +84,6 @@
   float: right;
   width: 33.33%;
   text-align:right;
-  line-height:100px;
   cursor: pointer;
 }
 
@@ -97,15 +95,12 @@
   color:#18BFD6;
   width: 33.33%;
   text-align:center;
-  line-height:100px;
-
   cursor: pointer;
 }
 
 .column-center img {
   margin:15px 0px;
   width:80px;
-  height:80px;
 }
 
 .route {
@@ -115,7 +110,7 @@
   color:#fff;
 }
 .matchs {
-  margin-bottom:20px;
+  margin-bottom:-28px;
 }
 .information{
   position:relative;
@@ -142,7 +137,7 @@
   border:none;
   outline:none;
   padding:10px 10px;
-  top:-25px;
+  top:-29px;
   cursor:pointer;
 }
 
@@ -165,3 +160,11 @@
   padding:14px;
   margin:1px 0px 0px 0px;
 }
+.span3 .time {
+  position: relative;
+  top: -1.5px;
+  display: inline-block;
+  font-size: 11px;
+
+}
+
