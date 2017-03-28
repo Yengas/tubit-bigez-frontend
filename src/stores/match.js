@@ -3,7 +3,6 @@ import { extendObservable } from 'mobx'
 export default class Match{
   constructor(request, state = {}){
     this.request = request;
-    this.matches = [];
 
     extendObservable(this, {
       matches: []
@@ -15,8 +14,7 @@ export default class Match{
    * @param route_id
    */
   loadFor(route_id){
-    return this.request(`routes/${route_id}/match`)
-      .then((result) => {
+    return this.request(`routes/${route_id}/match`).then((result) => {
         this.matches = result;
       });
   }

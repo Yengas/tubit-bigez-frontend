@@ -14,6 +14,8 @@ class Map extends React.Component{
   }
   componentDidMount(){
     const { location, map, params } = this.props;
+    // if(params && params.id && !map.isInspecting())
+    // TODO: load the route by url param.
     map.fillMarkers();
   }
 
